@@ -85,36 +85,36 @@ const Calculator: React.FC = () => {
     }
   };
 
-  const buttonClass = "w-16 h-16 md:w-20 md:h-20 rounded-full m-1 text-xl font-medium transition-all duration-200 active:scale-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-neon-blue";
-  const numberClass = `${buttonClass} bg-gray-800 text-white hover:bg-gray-700`;
-  const operationClass = `${buttonClass} bg-teal-500 text-black hover:bg-teal-500/80`;
-  const specialClass = `${buttonClass} bg-gray-700 text-white hover:bg-gray-600`;
+  const buttonClass = "w-16 h-16 md:w-20 md:h-20 rounded-full m-1 text-xl font-medium transition-all duration-200 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-800 focus:ring-indigo-400/30";
+  const numberClass = `${buttonClass} bg-slate-700/80 text-slate-100 hover:bg-slate-600/90 shadow-lg backdrop-blur-sm`;
+  const operationClass = `${buttonClass} bg-indigo-600/90 text-white hover:bg-indigo-500/90 shadow-lg`;
+  const specialClass = `${buttonClass} bg-slate-600/70 text-slate-200 hover:bg-slate-500/80 shadow-lg backdrop-blur-sm`;
 
   return (
-    <div className="bg-zinc-600 p-6 rounded-3xl shadow-2xl w-full max-w-sm">
+    <div className="bg-slate-800/90 backdrop-blur-lg p-8 rounded-3xl shadow-2xl w-full max-w-[26rem] border border-slate-700/50">
       {/* Display */}
-      <div className="relative bg-black rounded-2xl p-4 mb-4 h-24 flex flex-col justify-end items-end">
+      <div className="relative bg-slate-900 rounded-2xl p-6 mb-6 h-28 flex flex-col justify-end items-end shadow-inner ring-1 ring-slate-700/50">
         {error && (
-          <div className="absolute top-2 left-0 w-full text-center text-red-500 text-sm">
+          <div className="absolute top-3 left-0 w-full text-center text-rose-400 text-sm">
             {error}
           </div>
         )}
         {loading && (
-          <div className="absolute top-2 right-2">
-            <Loader2 className="animate-spin text-neon-blue" size={20} />
+          <div className="absolute top-3 right-3">
+            <Loader2 className="animate-spin text-indigo-400" size={20} />
           </div>
         )}
-        <div className="text-4xl text-white font-light tracking-wider overflow-x-auto max-w-full">
+        <div className="text-4xl text-slate-100 font-light tracking-wider overflow-x-auto max-w-full">
           {display}
         </div>
-        <div className="text-gray-500 text-sm mt-1">
+        <div className="text-slate-400 text-sm mt-1">
           {firstNumber} {operation}
         </div>
       </div>
 
       {/* Keypad */}
-      <div className="grid grid-cols-4 gap-2">
-        <button onClick={clear} className={specialClass}>C</button>
+      <div className="grid grid-cols-4 gap-3">
+        <button onClick={clear} className={specialClass}>AC</button>
         <button className={specialClass}>±</button>
         <button className={specialClass}>%</button>
         <button onClick={() => handleOperationClick('÷')} className={operationClass}>÷</button>
@@ -136,7 +136,7 @@ const Calculator: React.FC = () => {
 
         <button onClick={() => handleNumberClick('0')} className={`${numberClass} col-span-2`}>0</button>
         <button onClick={() => handleNumberClick('.')} className={numberClass}>.</button>
-        <button onClick={calculateResult} className={`${operationClass} bg-green-600 hover:bg-green-500/90`}>=</button>
+        <button onClick={calculateResult} className={`${buttonClass} bg-indigo-500 text-white hover:bg-indigo-400 shadow-lg ring-1 ring-indigo-400/50`}>=</button>
       </div>
     </div>
   );
