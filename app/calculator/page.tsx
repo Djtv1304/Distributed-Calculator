@@ -69,7 +69,7 @@ const Calculator: React.FC = () => {
           break;
       }
 
-      const response = await axios.get(`http://localhost:3000${endpoint}`);
+      const response = await axios.get(`https://distributed-calculator.vercel.app${endpoint}`);
       setDisplay(response.data.result.toString());
     } catch (error: unknown) {
 
